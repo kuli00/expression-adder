@@ -12,7 +12,12 @@ export const Wrapper = styled.div`
   justify-content: space-between;
 `;
 
-export const Form = styled.div``;
+export const Form = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+`;
 
 export const AddVariableButton = styled.div`
   display: flex;

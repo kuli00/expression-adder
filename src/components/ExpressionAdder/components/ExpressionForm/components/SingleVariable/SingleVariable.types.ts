@@ -1,6 +1,5 @@
 export interface SingleVariableProps {
-  id: number;
+  id: string;
   register: () => void;
-  coefficient?: number,
-  exponent?: number,
+  freeExpresion?: boolean;
 }

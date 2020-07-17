@@ -3,18 +3,21 @@ import { Wrapper, Form, AddVariableButton, AddVariableIcon } from './ExpressionF
 import { ExpressionFormProps } from './ExpressionForm.types';
 import { SingleVariable } from './components/SingleVariable';
 
-export const ExpressionForm: FC<ExpressionFormProps> = ({ register, variables, addVariable }) => {
+export const ExpressionForm: FC<ExpressionFormProps> = ({ id, register, variables, addVariable }) => {
   return (
     <Wrapper>
       <Form>
         {variables.map((v, key) => (
-          <SingleVariable
-            key={key}
-            id={key}
-            register={register}
-            coefficient={v.coefficient}
-            exponent={v.exponent}
-          />
+          <>
+            <SingleVariable
+              key={key}
+              id={`${id}-${key}`}
+              register={register}
+              coefficient={v.coefficient}
+              exponent={v.exponent}
+            />
+            {key < variables.length - 1 && ' + '}
+          </>
         ))}
       </Form>
       <AddVariableButton>

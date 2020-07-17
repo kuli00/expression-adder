@@ -12,6 +12,7 @@ export const ExpressionAdder = () => {
       {variables.map((v, key) => (
         <ExpressionForm
           key={key}
+          id={key}
           register={register}
           variables={v}
           addVariable={() => addVariable(key)}

@@ -13,8 +13,7 @@ export const useExpressionAdder = () => {
   ]);
   const { register } = useForm();
   
-  const addVariable = formKey => {
-    console.log('adding');
+  const addVariable = (formKey: number) => {
     setVariables(prevState => {
       const newState = [...prevState];
       newState[formKey] = [

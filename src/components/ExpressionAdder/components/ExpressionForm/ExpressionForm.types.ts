@@ -4,6 +4,7 @@ interface SingleVariable {
 }
 
 export interface ExpressionFormProps {
+  id: number;
   register: () => void;
   variables: SingleVariable[];
   addVariable: () => void;
