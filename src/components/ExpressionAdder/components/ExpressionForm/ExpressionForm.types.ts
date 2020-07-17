@@ -6,4 +6,5 @@ interface SingleVariable {
 export interface ExpressionFormProps {
   register: () => void;
   variables: SingleVariable[];
+  addVariable: () => void;
 }

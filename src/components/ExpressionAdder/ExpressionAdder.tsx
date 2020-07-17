@@ -5,10 +5,17 @@ import { SubmitButton } from './ExpressionAdder.styled';
 
 export const ExpressionAdder = () => {
   const { register, variables, addVariable } = useExpressionAdder();
+  
+  console.log(variables);
   return (
     <>
       {variables.map((v, key) => (
-        <ExpressionForm key={key} register={register} variables={v} />
+        <ExpressionForm
+          key={key}
+          register={register}
+          variables={v}
+          addVariable={() => addVariable(key)}
+        />
       ))}
       <SubmitButton>Calculate</SubmitButton>
     </>
