@@ -1,15 +1,15 @@
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import { mergeWith, add, orderBy } from 'lodash';
-import { SingleVariable } from './ExpressionAdder.types';
+import { SingleVariable, UseExpressionAdderTypes } from './ExpressionAdder.types';
 
-export const useExpressionAdder = () => {
+export const useExpressionAdder = (): UseExpressionAdderTypes => {
   const emptyVariable = {
     coefficient: 0,
     exponent: 0,
   };
   
-  const [variables, setVariables] = useState([
+  const [variables, setVariables] = useState<SingleVariable[][]>([
     [ Object.create(emptyVariable) ],
     [ Object.create(emptyVariable) ],
   ]);
@@ -33,8 +33,10 @@ export const useExpressionAdder = () => {
   
   const calculate = values => {
     const forms: Object[] = [];
+    // eslint-disable-next-line
     Object.keys(values).map(form => {
       const calculatedForm = {};
+      // eslint-disable-next-line
       Object.keys(values[form]).map(variable => {
         const coefficient = parseInt(values[form][variable].coefficient) || 0;
         const exponent = parseInt(values[form][variable].exponent) || 0;

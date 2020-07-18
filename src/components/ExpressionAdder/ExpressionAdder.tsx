@@ -5,7 +5,15 @@ import { Result } from './components/Result';
 import { SubmitButton, AddFormButton } from './ExpressionAdder.styled';
 
 export const ExpressionAdder = () => {
-  const { register, variables, addVariable, addForm, calculate, handleSubmit, result } = useExpressionAdder();
+  const {
+    register,
+    variables,
+    addVariable,
+    addForm,
+    calculate,
+    handleSubmit,
+    result,
+  } = useExpressionAdder();
   
   return (
     <form onSubmit={handleSubmit(calculate)}>
