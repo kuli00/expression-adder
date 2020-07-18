@@ -11,10 +11,9 @@ export const ExpressionForm: FC<ExpressionFormProps> = ({ id, register, variable
           <>
             <SingleVariable
               key={key}
-              id={`${id}-${key}`}
+              formId={id}
+              id={key}
               register={register}
-              coefficient={v.coefficient}
-              exponent={v.exponent}
             />
             {key < variables.length - 1 && ' + '}
           </>

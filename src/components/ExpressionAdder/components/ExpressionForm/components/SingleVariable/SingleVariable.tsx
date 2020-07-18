@@ -4,16 +4,26 @@ import { Wrapper, Coefficient, Exponent } from './SingleVariable.styled';
 
 export const SingleVariable: FC<SingleVariableProps> = ({
   id,
+  formId,
   register,
-  freeExpresion,
-}) => (
-  <Wrapper>
-    <Coefficient id={`${id}-e`} register={register} type="number"/>
-    {!freeExpresion && (
-      <>
-        x
-        <Exponent id={`${id}-c`} register={register} type="number"/>
-      </>
-    )}
-  </Wrapper>
-)
+}) => {
+  const coefficientName = `f${formId}.v${id}.coefficient`;
+  const exponentName = `f${formId}.v${id}.exponent`;
+  return (
+    <Wrapper>
+      <Coefficient
+        id={coefficientName}
+        name={coefficientName}
+        ref={register}
+        type="number"
+      />
+      x
+      <Exponent
+        id={exponentName}
+        name={exponentName}
+        ref={register}
+        type="number"
+      />
+    </Wrapper>
+  )
+}
