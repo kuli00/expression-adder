@@ -26,7 +26,11 @@ export const useExpressionAdder = () => {
       return newState;
     });
   };
-
+  
+  const addForm = () => {
+    setVariables(prevState => [...prevState, [Object.create(emptyVariable)]]);
+  };
+  
   const calculate = values => {
     const forms: Object[] = [];
     Object.keys(values).map(form => {
@@ -57,5 +61,6 @@ export const useExpressionAdder = () => {
     calculate,
     handleSubmit,
     result,
+    addForm,
   };
 };
