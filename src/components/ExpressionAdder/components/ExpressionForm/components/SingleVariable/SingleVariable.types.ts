@@ -1,5 +1,5 @@
 export interface SingleVariableProps {
-  id: string;
+  id: number;
+  formId: number;
   register: () => void;
-  freeExpresion?: boolean;
 }

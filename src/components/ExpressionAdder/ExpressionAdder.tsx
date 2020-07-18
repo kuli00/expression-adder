@@ -1,14 +1,14 @@
 import React from 'react';
 import { useExpressionAdder } from './ExpressionAdder.hook';
 import { ExpressionForm } from './components/ExpressionForm';
+import { Result } from './components/Result';
 import { SubmitButton } from './ExpressionAdder.styled';
 
 export const ExpressionAdder = () => {
-  const { register, variables, addVariable } = useExpressionAdder();
+  const { register, variables, addVariable, calculate, handleSubmit, result } = useExpressionAdder();
   
-  console.log(variables);
   return (
-    <>
+    <form onSubmit={handleSubmit(calculate)}>
       {variables.map((v, key) => (
         <ExpressionForm
           key={key}
@@ -18,7 +18,8 @@ export const ExpressionAdder = () => {
           addVariable={() => addVariable(key)}
         />
       ))}
-      <SubmitButton>Calculate</SubmitButton>
-    </>
+      <SubmitButton type="submit">Calculate</SubmitButton>
+      <Result result={result} />
+    </form>
   )
 };
