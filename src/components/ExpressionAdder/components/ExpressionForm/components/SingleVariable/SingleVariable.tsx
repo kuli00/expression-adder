@@ -16,6 +16,7 @@ export const SingleVariable: FC<SingleVariableProps> = ({
         name={coefficientName}
         ref={register}
         type="number"
+        step="any"
       />
       x
       <Exponent
@@ -23,6 +24,7 @@ export const SingleVariable: FC<SingleVariableProps> = ({
         name={exponentName}
         ref={register}
         type="number"
+        step="any"
       />
     </Wrapper>
   )

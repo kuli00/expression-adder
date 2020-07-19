@@ -38,8 +38,8 @@ export const useExpressionAdder = (): UseExpressionAdderTypes => {
       const calculatedForm = {};
       // eslint-disable-next-line
       Object.keys(values[form]).map(variable => {
-        const coefficient = parseInt(values[form][variable].coefficient) || 0;
-        const exponent = parseInt(values[form][variable].exponent) || 0;
+        const coefficient = parseFloat(values[form][variable].coefficient) || 0;
+        const exponent = parseFloat(values[form][variable].exponent) || 0;
         calculatedForm[exponent] = calculatedForm[exponent] + coefficient || coefficient;
       })
       forms.push(calculatedForm);
@@ -48,7 +48,7 @@ export const useExpressionAdder = (): UseExpressionAdderTypes => {
     const summedForms = mergeWith({}, ...forms, add)
     setResult(orderBy(
       Object.keys(summedForms).map(key => ({
-        exponent: parseInt(key),
+        exponent: parseFloat(key),
         coefficient: summedForms[key]
       })),
       ['exponent'],

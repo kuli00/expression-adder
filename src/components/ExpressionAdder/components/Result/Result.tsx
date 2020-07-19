@@ -16,7 +16,7 @@ export const Result: FC<ResultProps> = ({ result }) => (
               </>
             )}
             {r.exponent !== 0 && 'x'}
-            {(r.exponent > 1 || r.exponent < 0) && <sup>{r.exponent}</sup>}
+            {(r.exponent !== 1 && r.exponent !== 0) && <sup>{r.exponent}</sup>}
           </>
         )}
       </>
